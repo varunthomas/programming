@@ -1,0 +1,205 @@
+protected class
+
+a subclass of protected class with different packages can call a method in the protected class 
+but not a class
+eg:
+
+package onepkg;
+protected class superclass {
+
+int x=5;
+}
+
+package anotherpkg;
+import onepkg.superclass
+
+class subclass extends superclass{
+print(x);
+}
+will print 5
+this works only for subclasses and not other classes
+
+If not protected then the subclass in different package cant access the superclass members 
+									
+*********************************************
+
+interface class
+
+an interface is abstract by default
+methods inside interface are public and abstract
+abstract methods do not have method definition but only declaration
+eg
+abstract method(); ---Valid
+abstract method(){
+
+}; ----invalid
+
+all the variables in interface are public static final by default
+
+■ An interface can extend one or more other interfaces.
+■ An interface cannot extend anything but another interface.
+■ An interface cannot implement another interface or class.									
+
+**************************************************
+
+Final
+
+final methods cant be overriden
+eg:
+
+class superclass{
+
+final void method(){
+print("one thing");
+}
+}
+class subclass extends superclass{
+
+void method(){
+print("another thing");
+}
+}
+
+is invalid
+
+***********************************
+
+abstract
+
+a class having abstract method should be abstract but not vise vversa
+abstract classes can have non abstract methods
+
+********************************************
+
+enum
+
+enum cannot be inside a method, so it cant be inside main
+
+enum coffeesize {BIG,HUGE,OVERWHELMING};
+
+to acccess enum
+
+coffeesize cs=coffeesize.BIG;
+
+*****************************************
+Inner classes
+
+referenced as
+
+Outer out=new Outer();
+
+Outer.Inner in=out.new Inner();
+
+
+
+Anonymous inner classes
+
+class outer{
+
+void print(){
+printf("print outer");
+}
+}
+
+class class1{
+
+outer out=new outer(){
+void print(){
+printf("Overrided");
+}
+};
+}
+
+anonymous inner classes cant have methods not in outer class ie it can have print() method but no other methods
+
+*****************************************
+
+static variable
+
+a static variable will have only one space in memory whenever an object calls it
+
+eg 
+
+class test{
+
+static int x=3;
+int y=6;
+
+}
+class tester{
+public static void main(String args[]){
+
+test t1=new test();
+test t2=new test();
+// here t1 allocates a memory to x and y
+//and t2 allocates a memory again to x and not y
+
+}
+}
+
+static methods
+
+static methods can be invoked directly and doesnt need an instance variable
+
+eg
+
+class test{
+
+static void tester(){
+printf("static");
+}
+public static void main(String args[]){
+
+test.tester();
+
+}
+}
+
+static method can access static variables and change it but not non static variables
+
+*******************************
+
+insertion sort
+
+check if right <left if so swap
+
+not a fast algorithm
+
+time compexity big o(n^2)
+
+for(i=1;i<a.length();i++){
+
+key=a[i];
+j=i-1;
+
+while(j>=0 && k<a[j]){
+
+swap();
+j--;
+
+}
+}
+
+****************************************
+
+heapsort(A)
+
+build maxheap(A)
+
+swap(root and last leaf)
+
+heap size=heap size-1;
+
+maxheap(A-1);
+
+Worst case performance : O(n log n)
+Best case performance : O(n log n)
+Average case performance : O(n log n)
+
+******************************************
+
+mergesort
+
+Worst case performance : O(n log n)
+Best case performance : O(n log n)
+Average case performance : O(n log n)
